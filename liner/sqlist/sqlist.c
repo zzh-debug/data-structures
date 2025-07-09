@@ -6,7 +6,7 @@ sqlink list_create(){
     sqlink L;
     L = (sqlink)malloc(sizeof(sqlist));
     if(L == NULL){
-        printf("list malloc falied\n");
+        printf("list malloc failed\n");
         return L;
     }
     memset(L,0,sizeof(sqlist));
@@ -32,8 +32,8 @@ int list_empty(sqlink L){
 
 int list_length(sqlink L){
     if(L == NULL)
-        return NULL;
-        return(L->last+1);
+        return -1;
+    return(L->last+1);
 }
 int list_locate(sqlink L,data_t value){
     return 0;
@@ -49,7 +49,7 @@ int list_insert(sqlink L,data_t value,int pos){
     printf("Pos is invalid\n");
     return -1;
     }
-    for(i = L->last; i >= pos; i++){
+    for(i = L->last; i >= pos; i--){
     L->data[i+1] = L->data[i];
     }
     L->data[pos] = value;
@@ -60,5 +60,23 @@ int list_insert(sqlink L,data_t value,int pos){
 }
 
 
+int list_show(sqlink L){
+    int i = 0;
+    if (L == NULL) {
+        printf("the list is empty or NULL\n");
+        return -1;
+    }
+    if (L->last == -1){
+        printf("the list is empty\n");
+        return -1;
+        }
+    while(i <= L->last){
+        printf("%d ",L->data[i]);
+        i++;
+    }
+
+    printf("\n");
+    return 0;
+}
 
 

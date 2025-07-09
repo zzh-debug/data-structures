@@ -15,6 +15,7 @@ int list_empty(sqlink L);
 int list_length(sqlink L);
 int list_locate(sqlink L,data_t value);
 int list_insert(sqlink L,data_t value,int pos);
+int list_show(sqlink L);
 #endif
 
 
