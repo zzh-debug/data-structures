@@ -61,3 +61,46 @@ void list_free(listlink H){
     }
     return;
 }
+int list_head_insert(listlink H,data_t value){
+    if (H == NULL){
+        printf("head is NULL\n");
+        return -1;
+    }
+    listlink New = (listlink)malloc(sizeof(listnode));
+    if (New == NULL){
+        printf("create new node failed\n");
+        return -1;
+    }
+    New->data = value;
+    listlink p = H;
+    New->next = p->next;
+    p->next = New;
+    return 0;
+}
+
+
+int list_pos_insert(listlink H,int pos,data_t value){
+    if (H == NULL){
+        printf("head is NULL\n");
+        return -1;
+    }
+    listlink New = (listlink)malloc(sizeof(listnode));
+    if (New == NULL){
+        printf("create new node failed\n");
+        return -1;
+    }
+    if (pos<0){
+        printf("pos is invalid!\n");
+        return -1;
+    }
+    New->data = value;
+    New->next = NULL;
+    listlink pCurrent = H;
+    int i =0;
+    for(i;i<pos && pCurrent->next != NULL;i++){
+    pCurrent = pCurrent->next;
+    }
+    New->next = pCurrent->next;
+    pCurrent->next = New;
+    return 0;
+}
