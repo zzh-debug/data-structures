@@ -10,5 +10,6 @@ typedef struct node{
 
 listlink list_create();
 int list_tail_insert(listlink H,data_t value);
-
-
+int list_show(listlink H);
+void list_free(listlink H);
+#endif 
