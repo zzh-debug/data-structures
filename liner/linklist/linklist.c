@@ -104,3 +104,22 @@ int list_pos_insert(listlink H,int pos,data_t value){
     pCurrent->next = New;
     return 0;
 }
+
+
+int list_pos_delet(listlink H,int pos){
+    if (H == NULL){
+        printf("head is NULL\n");
+        return -1;
+    }
+    if (pos<0){
+        printf("pos is invalid!\n");
+        return -1;
+    }
+    listlink pCurrent = H;
+    int i =0;
+    
+}
+
+int list_length(listlink H){
+return 
+}
