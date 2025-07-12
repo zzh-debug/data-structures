@@ -111,15 +111,31 @@ int list_pos_delet(listlink H,int pos){
         printf("head is NULL\n");
         return -1;
     }
-    if (pos<0){
+    int length = list_length(H);
+    if (pos<0 || pos>length){
         printf("pos is invalid!\n");
         return -1;
     }
     listlink pCurrent = H;
-    int i =0;
-    
+    for (int i = 0;i < pos;i++){
+        pCurrent = pCurrent->next;
+    }
+    listlink toDelet = pCurrent->next;
+    pCurrent->next = toDelet->next;
+    free(toDelet);
+    return 0;
 }
 
 int list_length(listlink H){
-return 
+    if (H == NULL){
+        printf("head is NULL\n");
+        return -1;
+    }
+    int length = 0;
+    listlink pCurrent = H;
+    while (pCurrent->next != NULL){
+        pCurrent = pCurrent->next;
+        length++;
+    }
+    return length;
 }

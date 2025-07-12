@@ -12,6 +12,10 @@ int main(int argc,int* argv[]){
     list_head_insert(head,2);
     list_head_insert(head,3);
     list_pos_insert(head,3,100);
+    printf("length = %d\n",list_length(head));
+    list_show(head);
+    list_pos_delet(head,1);
+    printf("length = %d\n",list_length(head));
     list_show(head);
     list_free(head);
     return 0;
