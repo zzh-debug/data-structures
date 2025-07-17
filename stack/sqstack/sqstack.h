@@ -1,8 +1,8 @@
 #ifndef __SQSTACK__H
 #define __SQSTACK__H
 
-typedef int data_t
-#typedef struct {
+typedef int data_t;
+typedef struct {
     data_t* data;
     int maxlen;
     int top;
@@ -15,5 +15,5 @@ int stack_top(sqstack* s);
 int stack_clear(sqstack* s);
 int stack_free(sqstack* s);
 int stack_empty(sqstack* s);
-int stack_full(sqsatck* s);
+int stack_full(sqstack* s);
 #endif
