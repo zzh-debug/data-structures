@@ -21,7 +21,7 @@ int hash_insert(hash* HT,datatype key) {
     }
     linklist p;
     linklist q;
-    if(p = (linklist*)malloc(sizeof(listnode)) == NULL) {
+    if((p = (linklist)malloc(sizeof(listnode))) == NULL) {
         printf("malloc listnode failed\n");
         return -1;
     }
@@ -29,7 +29,7 @@ int hash_insert(hash* HT,datatype key) {
     p->value = key % N;
     p->next = NULL;
     q = &(HT->data[key % N]);
-    while(q->next !== NULL && q->next->key < p->key) {
+    while(q->next != NULL && q->next->key < p->key) {
         q = q->next;
     }
     p->next = q->next;
@@ -39,7 +39,7 @@ int hash_insert(hash* HT,datatype key) {
 }
 
 
-linklist* hash_search(hash* HT,datatype key) {
+linklist hash_search(hash* HT,datatype key) {
     if (HT == NULL) {
         printf("HT is NULL\n");
         return NULL;
@@ -51,10 +51,8 @@ linklist* hash_search(hash* HT,datatype key) {
         p = p->next;
     }
     if (p->next == NULL) {
-        printf("not found\n");
         return NULL;
     } else {
-        printf("found\n");
         return p->next;
     }
 }

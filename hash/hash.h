@@ -26,6 +26,6 @@ typedef struct {
 
 hash* hash_create();
 int hash_insert(hash* HT,datatype key);
-linklist* hash_search(hash* HT,datatype key);
+linklist hash_search(hash* HT,datatype key);
 
 #endif

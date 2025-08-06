@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "hash.h"
 
 int main(int argc,const char* argv[]) {
     hash* HT;
@@ -11,7 +12,7 @@ int main(int argc,const char* argv[]) {
     if (HT == NULL) {
         return -1;
     }
-    for (i, i<sizeof(data)/sizeof(int)) {
+    for (i; i<sizeof(data)/sizeof(int); i++) {
         hash_insert(HT,data[i]);
     }
     printf("input: ");
