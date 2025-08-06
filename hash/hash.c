@@ -29,12 +29,32 @@ int hash_insert(hash* HT,datatype key) {
     p->value = key % N;
     p->next = NULL;
     q = &(HT->data[key % N]);
-    if (q->next == NULL) {
-        q->next = p;
+    while(q->next !== NULL && q->next->key < p->key) {
+        q = q->next;
     }
+    p->next = q->next;
+    q->next = p;
+
+    return 0;
 }
 
 
 linklist* hash_search(hash* HT,datatype key) {
+    if (HT == NULL) {
+        printf("HT is NULL\n");
+        return NULL;
+    }
+    linklist p;
 
+    p = &(HT->data[key % N]);
+    while (p->next && p->next->key != key) {
+        p = p->next;
+    }
+    if (p->next == NULL) {
+        printf("not found\n");
+        return NULL;
+    } else {
+        printf("found\n");
+        return p->next;
+    }
 }
